@@ -78,7 +78,7 @@ print("A* Search Path:", path)
 
 
 
-b)
+# b)
 
 # Using Toyota dataset
 import matplotlib.pyplot as plt
