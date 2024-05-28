@@ -39,42 +39,85 @@ def a_star_search(graph, start, goal, heuristic, cost):
     return path
 
 # Example graph
-graph = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F', 'G'],
-    'D': [],
-    'E': [],
-    'F': [],
-    'G': []
-}
+# graph = {
+#     'A': ['B', 'C'],
+#     'B': ['D', 'E'],
+#     'C': ['F', 'G'],
+#     'D': [],
+#     'E': [],
+#     'F': [],
+#     'G': []
+# }
 
-# Example heuristic values (assumed for demonstration)
-heuristic = {
-    'A': 6,
-    'B': 4,
-    'C': 4,
-    'D': 0,
-    'E': 2,
-    'F': 3,
-    'G': 1
-}
+# # Example heuristic values (assumed for demonstration)
+# heuristic = {
+#     'A': 6,
+#     'B': 4,
+#     'C': 4,
+#     'D': 0,
+#     'E': 2,
+#     'F': 3,
+#     'G': 1
+# }
 
-# Example costs between nodes (assumed for demonstration)
-cost = {
-    ('A', 'B'): 1,
-    ('A', 'C'): 1,
-    ('B', 'D'): 1,
-    ('B', 'E'): 3,
-    ('C', 'F'): 5,
-    ('C', 'G'): 2
-}
+# # Example costs between nodes (assumed for demonstration)
+# cost = {
+#     ('A', 'B'): 1,
+#     ('A', 'C'): 1,
+#     ('B', 'D'): 1,
+#     ('B', 'E'): 3,
+#     ('C', 'F'): 5,
+#     ('C', 'G'): 2
+# }
 
-start = 'A'
-goal = 'D'
+# start = 'A'
+# goal = 'D'
 
+# path = a_star_search(graph, start, goal, heuristic, cost)
+# print("A* Search Path:", path)
+def create_graph():
+    graph = {}
+    while True:
+        node = input("Enter a node (or 'done' to finish): ").strip()
+        if node == 'done':
+            break
+        neighbors = input(f"Enter neighbors of node {node} separated by space: ").strip().split()
+        graph[node] = neighbors
+    return graph
+
+def create_heuristic():
+    heuristic = {}
+    while True:
+        node = input("Enter a node (or 'done' to finish): ").strip()
+        if node == 'done':
+            break
+        heuristic[node] = int(input(f"Enter heuristic value for node {node}: ").strip())
+    return heuristic
+
+def create_costs(graph):
+    cost = {}
+    for node in graph:
+        neighbors = graph[node]
+        for neighbor in neighbors:
+            cost[(node, neighbor)] = int(input(f"Enter cost from {node} to {neighbor}: ").strip())
+    return cost
+
+# Input graph, heuristic values, and costs from user
+print("Enter the graph:")
+graph = create_graph()
+
+print("\nEnter the heuristic values:")
+heuristic = create_heuristic()
+
+print("\nEnter the costs between nodes:")
+cost = create_costs(graph)
+
+start = input("\nEnter the start node: ").strip()
+goal = input("Enter the goal node: ").strip()
+
+# Perform A* search
 path = a_star_search(graph, start, goal, heuristic, cost)
-print("A* Search Path:", path)
+print("\nA* Search Path:", path)
 
 
 
