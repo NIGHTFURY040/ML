@@ -1,4 +1,4 @@
-a)
+# a)
 
 import heapq
 
@@ -97,7 +97,7 @@ print("\nBest First Search Path:", path)
 
 
 
-b)
+# b)
 
 import pandas as pd
 import matplotlib.pyplot as plt
