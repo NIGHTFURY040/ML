@@ -61,7 +61,39 @@ goal = 'D'
 
 path = best_first_search(graph, start, goal, heuristic)
 print("Best First Search Path:", path)
+#if u want user input
+def create_graph():
+    graph = {}
+    while True:
+        node = input("Enter a node (or 'done' to finish): ").strip()
+        if node == 'done':
+            break
+        neighbors = input(f"Enter neighbors of node {node} separated by space: ").strip().split()
+        graph[node] = neighbors
+    return graph
 
+def create_heuristic():
+    heuristic = {}
+    while True:
+        node = input("Enter a node (or 'done' to finish): ").strip()
+        if node == 'done':
+            break
+        heuristic[node] = int(input(f"Enter heuristic value for node {node}: ").strip())
+    return heuristic
+
+# Input graph and heuristic from user
+print("Enter the graph:")
+graph = create_graph()
+
+print("\nEnter the heuristic values:")
+heuristic = create_heuristic()
+
+start = input("\nEnter the start node: ").strip()
+goal = input("Enter the goal node: ").strip()
+
+# Perform best first search
+path = best_first_search(graph, start, goal, heuristic)
+print("\nBest First Search Path:", path)
 
 
 
