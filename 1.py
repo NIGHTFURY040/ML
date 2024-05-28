@@ -35,32 +35,32 @@ def best_first_search(graph, start, goal, heuristic):
     return path
 
 # Example graph
-graph = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F', 'G'],
-    'D': [],
-    'E': [],
-    'F': [],
-    'G': []
-}
+# graph = {
+#     'A': ['B', 'C'],
+#     'B': ['D', 'E'],
+#     'C': ['F', 'G'],
+#     'D': [],
+#     'E': [],
+#     'F': [],
+#     'G': []
+# }
 
-# Example heuristic values (assumed for demonstration)
-heuristic = {
-    'A': 6,
-    'B': 4,
-    'C': 4,
-    'D': 0,
-    'E': 2,
-    'F': 3,
-    'G': 1
-}
+# # Example heuristic values (assumed for demonstration)
+# heuristic = {
+#     'A': 6,
+#     'B': 4,
+#     'C': 4,
+#     'D': 0,
+#     'E': 2,
+#     'F': 3,
+#     'G': 1
+# }
 
-start = 'A'
-goal = 'D'
+# start = 'A'
+# goal = 'D'
 
-path = best_first_search(graph, start, goal, heuristic)
-print("Best First Search Path:", path)
+# path = best_first_search(graph, start, goal, heuristic)
+# print("Best First Search Path:", path)
 #if u want user input
 def create_graph():
     graph = {}
