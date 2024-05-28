@@ -24,7 +24,20 @@ def minmax(depth, nodeIndex, maximizingPlayer, values, alpha, beta, path):
         return best, best_path
 
 # Example tree with depth 3 and 8 terminal nodes
-values = [3, 5, 2, 9, 12, 5, 23, 23]
+# values = [3, 5, 2, 9, 12, 5, 23, 23]
+#user ip->
+def create_values():
+    values = []
+    print("Enter values for each node in the tree (in level order):")
+    while True:
+        value = input("Enter value of the node (or 'done' to finish): ").strip()
+        if value == 'done':
+            break
+        values.append(int(value))
+    return values
+
+# Input values for the tree nodes from the user
+values = create_values()
 
 # Start the Min-Max algorithm
 optimal_value, optimal_path = minmax(0, 0, True, values, float('-inf'), float('inf'), [])
